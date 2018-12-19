@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="lib/vue-2.4.0.js"></script>
+</head>
+<body>
+    <div id="app">
+        <p>
+            {{msg}}
+        </p>
+        
+        <p v-text="hello"></p>
+        <p v-html="hello"></p>
+        <p v-html="hello">1232131</p>
+        <input type="button" value="按钮" v-on:mouseover='over'>
+        <input type="button" value="按钮2" @click='btn2' style="background-color: red">
+        <br>
+        <input type="text" v-model="msg">
+    </div>
+
+   
+    <script>
+        //v-text 纯文本输出 不会解析标签
+        //v-html 会解析标签 
+        var vm = new Vue({
+            el:"#app",
+            data:{
+                msg:'vue初体验',
+                hello:'<h3>v-text纯文本输出</h3>'
+            },
+            methods:{
+                over(){
+                    alert('好的')
+                },
+                btn2(){
+                    console.log('ok')
+                }
+            }
+        })
+    </script>
+</body>
+</html>
