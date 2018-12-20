@@ -9,7 +9,50 @@
 </head>
 <body>
     <div id="app">
-        <input type="text">
+        <input type="text" v-modle="n1">
+
+        <select  v-model='opt'>
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+        </select>
+
+        <input type="text" v-model='n2'>
+        <input type="button" value="=" @click='calc'>
+        <input type="text" v-model='res'>
     </div>
+
+    <script>
+        //创建vue实例,得到viewmodel
+        var vm = new Vue({
+            el:'#app',
+            data:{
+                n2:  0,
+                n1:  0,
+               
+                res:  0,
+                opt: '+'
+            },
+            methods: {
+                calc() {
+                   switch(this.opt){
+                    case '+':
+                    this.res=parseFloat(this.n1) + parseFloat(this.n2)
+                    break;
+                    case '-':
+                    this.res=parseFloat(this.n1) - parseFloat(this.n2)
+                    break;
+                    case '*':
+                    this.res=parseFloat(this.n1) * parseFloat(this.n2)
+                    break;
+                    case '/':
+                    this.res=parseFloat(this.n1) / parseFloat(this.n2)
+                    break;
+                   } 
+                }
+            }
+        })
+    </script>
 </body>
 </html>
